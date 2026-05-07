@@ -16,25 +16,25 @@ and ensure you have proper backups before running this script.
 USE master;
 GO
 
--- Drop and recreate the "Datawarehouse" database
-IF EXISTS (SELECT 1 FROM sys.databases WHERE name = 'Datawarehouse')
+-- Drop and recreate the "FirstDatawarehouse" database
+IF EXISTS (SELECT 1 FROM sys.databases WHERE name = 'FirstDatawarehouse')
 BEGIN
-	ALTER DATABASE Datawarehouse SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
-	DROP DATABASE Datawarehouse;
+	ALTER DATABASE FirstDatawarehouse SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+	DROP DATABASE FirstDatawarehouse;
 END;
 GO
 
--- Create the 'Datawarehouse
-CREATE DATABASE Datawarehouse;
+-- Create the 'FirstDatawarehouse
+CREATE DATABASE FirstDatawarehouse;
 GO
 
-USE Datawarehouse;
+USE FirstDatawarehouse;
 GO
 
 -- Create Schemas
-CREATE SCHEMA bronze;
+CREATE SCHEMA Bronze;
 GO
-CREATE SCHEMA silver;
+CREATE SCHEMA Silver;
 GO
-CREATE SCHEMA gold;
+CREATE SCHEMA Gold;
 GO
